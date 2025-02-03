@@ -1,10 +1,8 @@
 # sa se faca un script care intoarce citate random din GOT
 import json
 from json import JSONDecodeError
-
-import quote
 import requests
-from urllib3 import request
+
 
 
 def get_config(path: str = "config.json") -> dict:
@@ -21,7 +19,6 @@ def get_config(path: str = "config.json") -> dict:
         return {}
 
 
-
 def get_quote(url: str) -> dict:
     response = requests.get(url)
     # prima varianta - if str(response.status_code)[:1] == "2":
@@ -33,8 +30,6 @@ def get_quote(url: str) -> dict:
             name = response_data['character']['name']
             house = response_data['character']['house']['name']
             return {"quote": quote, "name": name, "house": house}
-
-
 
 
 
